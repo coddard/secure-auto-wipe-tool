@@ -1,7 +1,7 @@
 """
 Secure Auto-Wipe Tool
 Author: coddard
-Version: 2.3 (Final Tested Version)
+Version: 2.3
 """
 
 import os
