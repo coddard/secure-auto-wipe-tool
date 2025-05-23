@@ -9,6 +9,21 @@
 ![Security Shield](https://img.shields.io/badge/Security-Level_5-critical?logo=security) 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python)
 
+Key Features:
+
+    AES-256 Encryption: All files encrypted at rest
+    Automatic Wipe: 7-pass DoD-compliant deletion after timer expires
+    Tamper Protection: HMAC-secured countdown mechanism
+    Cross-Platform: Works on Windows/macOS/Linux
+    Single-File EXE: No Python required for deployment
+
+Basic Usage:
+
+    Initialize USB:
+    python Secure-Auto-Wipe-Tool.py /your/usb/path -t 24 --init
+
+    Keep connected - destruction occurs automatically after 24h 
+    
 ## 📖 Overview
 Secure Auto-Wipe Tool is an NSA-grade automated data destruction system that combines military-grade cryptography with physical media sanitization. Designed for sensitive operations, this tool automatically and irreversibly destroys all data on USB drives after a preset time interval (6/12/24 hours) using a dual-layer security approach:
 
