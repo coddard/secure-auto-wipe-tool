@@ -164,6 +164,3 @@ python secure_wipe.py /test/usb -t 0.016 --init
 - NSA Commercial Solutions for Classified Program
 ```
 
-- Contribution guidelines
-
-Would you like me to create any additional documentation files (e.g., SECURITY.md, CONTRIBUTING.md)?
