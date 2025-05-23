@@ -75,7 +75,7 @@ python Secure-Auto-Wipe-Tool.py --help
 ### Initialization (First Run)
 ```bash
 # Initialize with 24-hour destruction timer
-python secure_wipe.py /path/to/usb -t 24 --init
+python Secure-Auto-Wipe-Tool.py.py /path/to/usb -t 24 --init
 ```
 - You'll be prompted for a secure passphrase
 - All files will be encrypted in-place
@@ -84,10 +84,10 @@ python secure_wipe.py /path/to/usb -t 24 --init
 ### Normal Operation
 ```bash
 # Background execution (Linux/macOS)
-nohup python secure_wipe.py /path/to/usb &
+nohup python Secure-Auto-Wipe-Tool.py /path/to/usb &
 
 # Windows (Run in separate cmd window)
-start /B python secure_wipe.py D:\USB
+start /B python Secure-Auto-Wipe-Tool.py D:\USB
 ```
 
 ## 🔍 How It Works
@@ -155,7 +155,7 @@ MIT License - See [LICENSE](LICENSE) for details
 ## 🔬 Testing
 ```bash
 # Test with 1-minute destruction cycle (Demo mode)
-python secure_wipe.py /test/usb -t 0.016 --init
+python Secure-Auto-Wipe-Tool.py /test/usb -t 0.016 --init
 # Wait 60 seconds and verify wipe
 ```
 
