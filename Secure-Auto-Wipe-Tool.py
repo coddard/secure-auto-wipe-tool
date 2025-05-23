@@ -1,7 +1,7 @@
 """
 Secure Auto-Wipe Tool
 Author: coddard
-Version: 2.1
+Version: 2.2 (Fixed timer logic and syntax errors)
 """
 
 import os
@@ -118,8 +118,15 @@ class SecureUSBWiper:
             vault_data = salt + self._encrypt_data(
                 str(self.hours).encode() + get_random_bytes(32)
             
-            with open(os.path.join(self.usb_path, CONFIG["KEY_FILE"]), "wb") as f:
+            key_path = os.path.join(self.usb_path, CONFIG["KEY_FILE"])
+            with open(key_path, "wb") as f:
                 f.write(vault_data)
+            
+            # Initialize timer file with encrypted timestamp
+            timer_data = self._encrypt_data(str(datetime.now().timestamp()).encode())
+            timer_path = os.path.join(self.usb_path, CONFIG["TIMER_FILE"])
+            with open(timer_path, "wb") as f:
+                f.write(timer_data)
             
             self.initialized = True
             logging.info("Vault initialized successfully")
@@ -134,12 +141,12 @@ class SecureUSBWiper:
             timer_file = os.path.join(self.usb_path, CONFIG["TIMER_FILE"])
             
             if not os.path.exists(timer_file):
-                with open(timer_file, "wb") as f:
-                    f.write(get_random_bytes(128))
-                return False
-
+                logging.error("Timer file missing. System may not be initialized.")
+                return True
+            
             with open(timer_file, "rb") as f:
-                stored_time = float(self._decrypt_data(f.read()))
+                ciphertext = f.read()
+                stored_time = float(self._decrypt_data(ciphertext))
             
             return datetime.now() > datetime.fromtimestamp(stored_time) + timedelta(hours=self.hours)
         except Exception as e:
@@ -154,9 +161,12 @@ class SecureUSBWiper:
                 for file in files:
                     if file == os.path.basename(__file__):
                         continue
-                    self._secure_overwrite(os.path.join(root, file))
+                    file_path = os.path.join(root, file)
+                    self._secure_overwrite(file_path)
             
-            for path in [CONFIG["KEY_FILE"], CONFIG["TIMER_FILE"]]:
+            # Remove system files
+            for fname in [CONFIG["KEY_FILE"], CONFIG["TIMER_FILE"]]:
+                path = os.path.join(self.usb_path, fname)
                 if os.path.exists(path):
                     self._secure_overwrite(path)
             
