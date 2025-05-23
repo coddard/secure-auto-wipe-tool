@@ -36,7 +36,7 @@ python Secure-Auto-Wipe-Tool.py --help
 
 
 ```markdown
-# SecureUSBWiper 🔒⏳⚡
+# Secure-Auto-Wipe-Tool 🔒⏳⚡
 
 **Military-Grade Automated Data Destruction Solution**  
 *"Your data vanishes like it never existed - precisely when you need it to"*
@@ -45,7 +45,7 @@ python Secure-Auto-Wipe-Tool.py --help
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python)
 
 ## 📖 Overview
-SecureUSBWiper is an NSA-grade automated data destruction system that combines military-grade cryptography with physical media sanitization. Designed for sensitive operations, this tool automatically and irreversibly destroys all data on USB drives after a preset time interval (6/12/24 hours) using a dual-layer security approach:
+Secure-Auto-Wipe-Tool is an NSA-grade automated data destruction system that combines military-grade cryptography with physical media sanitization. Designed for sensitive operations, this tool automatically and irreversibly destroys all data on USB drives after a preset time interval (6/12/24 hours) using a dual-layer security approach:
 
 1. **AES-256-GCM Encryption** - All files are encrypted at rest
 2. **DoD 5220.22-M Compliant Wiping** - 7-pass secure deletion protocol
