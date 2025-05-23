@@ -1,7 +1,7 @@
 """
 Secure Auto-Wipe Tool
 Author: coddard
-Version: 2.2 (Fixed timer logic and syntax errors)
+Version: 2.3 (Final Tested Version)
 """
 
 import os
@@ -114,9 +114,10 @@ class SecureUSBWiper:
             salt = get_random_bytes(64)
             self.data_key = self._derive_key(password, salt)
             
-            # Store encrypted configuration
+            # Store encrypted configuration (FIXED)
             vault_data = salt + self._encrypt_data(
                 str(self.hours).encode() + get_random_bytes(32)
+            )
             
             key_path = os.path.join(self.usb_path, CONFIG["KEY_FILE"])
             with open(key_path, "wb") as f:
@@ -146,9 +147,11 @@ class SecureUSBWiper:
             
             with open(timer_file, "rb") as f:
                 ciphertext = f.read()
-                stored_time = float(self._decrypt_data(ciphertext))
+                decrypted = self._decrypt_data(ciphertext).decode()
+                stored_time = float(decrypted)
             
-            return datetime.now() > datetime.fromtimestamp(stored_time) + timedelta(hours=self.hours)
+            expiration_time = datetime.fromtimestamp(stored_time) + timedelta(hours=self.hours)
+            return datetime.now() > expiration_time
         except Exception as e:
             logging.error(f"Timer verification failed: {str(e)}")
             return True
