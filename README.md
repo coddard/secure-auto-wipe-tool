@@ -2,6 +2,7 @@
 
 ![7aeea85c-e2ac-44e6-af03-f17d19b28577](https://github.com/user-attachments/assets/c86fbab9-a78a-4935-ba4b-5bd9e06ffe52)
 
+GUI:
 <img width="855" alt="Ekran Resmi 2025-06-19 21 15 16" src="https://github.com/user-attachments/assets/e5877312-db0b-481a-8ee6-c63c0456dfe6" />
 
 **Military-Grade Automated Data Destruction Solution**  
