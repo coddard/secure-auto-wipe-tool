@@ -168,15 +168,6 @@ graph TD
 
 *Clean, professional interface with security-focused color scheme*
 
-## Error Handling
-- Clear error messages for all failure scenarios
-- Validation for:
-  - USB path selection
-  - Password strength
-  - Password matching
-  - File system operations
-- Graceful handling of operation cancellations
-
 ## Security Notes
 - Passwords are never stored or logged
 - All sensitive operations require confirmation
