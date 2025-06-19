@@ -91,6 +91,99 @@ nohup python Secure-Auto-Wipe-Tool.py /path/to/usb &
 # Windows (Run in separate cmd window)
 start /B python Secure-Auto-Wipe-Tool.py D:\USB
 ```
+# Secure Auto-Wipe Tool - GUI Features
+
+## Overview
+The Secure Auto-Wipe Tool GUI provides a user-friendly interface for the military-grade secure USB data destruction system. This implementation maintains all the security features of the original command-line tool while adding an intuitive graphical interface.
+
+## Key Features
+
+### 🖥️ User Interface
+- **Professional Dark Theme**: Modern security-focused interface with dark colors
+- **Multi-Page Layout**: Organized workflow with dedicated pages for each function
+- **Responsive Design**: Adapts to different screen sizes
+- **System Tray Integration**: Runs in background with tray icon for monitoring
+
+### 🔐 Security Features
+- **Military-Grade Encryption**: AES-256 encryption for sensitive data
+- **7-Pass Secure Deletion**: NSA-approved file wiping algorithm
+- **Password Protection**: Strong passphrase requirement for initialization
+- **Automatic Destruction**: Data wiped after specified time period
+- **Emergency Wipe**: Immediate data destruction option
+
+### ⚙️ Core Functionality
+- **USB Initialization**: 
+  - Set wipe timer (6/12/24 hours)
+  - Password-protected setup
+  - Drive selection with browse dialog
+  
+- **USB Monitoring**:
+  - Real-time status display
+  - Countdown timer showing time until wipe
+  - Background monitoring capability
+  
+- **Progress Tracking**:
+  - Real-time progress bars
+  - Status messages for all operations
+  - Time remaining display
+
+### ⚠️ Safety Features
+- **Multiple Confirmations**: Warning dialogs for destructive operations
+- **Password Validation**: Minimum 8-character requirement
+- **Password Confirmation**: Must enter passphrase twice
+- **Operation Cancellation**: Ability to stop ongoing processes
+- **Error Handling**: Clear error messages for all failure scenarios
+
+### 🔄 Workflow
+```mermaid
+graph TD
+    A[Welcome Screen] --> B{User Choice}
+    B -->|Initialize| C[USB Setup Page]
+    B -->|Monitor| D[USB Monitor Page]
+    C --> E[Progress Page]
+    D --> E[Progress Page]
+    E --> F[Completion]
+    E -->|Cancel| A
+    F --> A
+```
+
+### 📊 System Integration
+- **Logging**: Detailed operation logging to file
+- **Platform Support**: Works on Windows, macOS, and Linux
+- **Taskbar Integration**: Proper application identification in taskbar
+- **Background Operation**: Continues monitoring when minimized
+
+### 🛠️ Technical Features
+- **Threaded Operations**: Background processing keeps UI responsive
+- **Fallback Crypto**: Pure Python crypto implementation if libraries missing
+- **Automatic Updates**: Time calculation and display
+- **Command Line Support**: Original CLI functionality preserved
+
+## System Requirements
+- Python 3.6+
+- PyQt5 (`pip install pyqt5`)
+- Recommended: pycryptodome (`pip install pycryptodome`) for enhanced security
+
+## Visual Design
+
+*Clean, professional interface with security-focused color scheme*
+
+## Error Handling
+- Clear error messages for all failure scenarios
+- Validation for:
+  - USB path selection
+  - Password strength
+  - Password matching
+  - File system operations
+- Graceful handling of operation cancellations
+
+## Security Notes
+- Passwords are never stored or logged
+- All sensitive operations require confirmation
+- Actual crypto implementation depends on installed libraries
+- Fallback crypto should not be used in production environments
+
+This GUI implementation provides a comprehensive, user-friendly interface for the secure auto-wipe functionality while maintaining all the security features of the original command-line tool.
 
 ## 🔍 How It Works
 
