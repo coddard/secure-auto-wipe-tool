@@ -134,19 +134,6 @@ The Secure Auto-Wipe Tool GUI provides a user-friendly interface for the militar
 - **Operation Cancellation**: Ability to stop ongoing processes
 - **Error Handling**: Clear error messages for all failure scenarios
 
-### 🔄 Workflow
-```mermaid
-graph TD
-    A[Welcome Screen] --> B{User Choice}
-    B -->|Initialize| C[USB Setup Page]
-    B -->|Monitor| D[USB Monitor Page]
-    C --> E[Progress Page]
-    D --> E[Progress Page]
-    E --> F[Completion]
-    E -->|Cancel| A
-    F --> A
-```
-
 ### 📊 System Integration
 - **Logging**: Detailed operation logging to file
 - **Platform Support**: Works on Windows, macOS, and Linux
